@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNANABHUMI PORTAL – STUDENT REGISTRATION FORM – FOR FRESH STUDENTS</title>
+    <style>
+:root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f5a623;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            padding: 10px 0;
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 12 12'%3E%3Cpath d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        #print-pdf {
+            background-color: var(--secondary-color);
+            margin-top: 20px;
+        }
+
+        #print-pdf:hover {
+            background-color: #d88f1a;
+        }
+
+        .page {
+            page-break-after: always;
+        }
+
+        @media print {
+            body {
+                background-color: #fff;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .page {
+                page-break-after: always;
+            }
+
+            button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="student-form" name="submit-to-google-sheet">
+        <div class="container page">
+            <h1>JNANABHUMI PORTAL – STUDENT REGISTRATION FORM – FOR FRESH STUDENTS</h1>
+            <h2>CET Details (For convenor quota)</h2>
+            
+            <!-- CET Details Section -->
+            <div class="form-group">
+                <label for="cet-name">CET Name:</label>
+                <select id="cet-name" name="CET Name">
+                    <option value="EAPCET">EAPCET</option>
+                    <option value="POLYCET">POLYCET</option>
+                    <option value="ECET">ECET</option>
+                    <option value="PGCET">PGCET</option>
+                    <option value="OTHERS">OTHERS</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cet-hall-ticket-no">CET Hall-Ticket No.:</label>
+                <input type="number" id="cet-hall-ticket-no" name="CET Hall-Ticket No">
+            </div>
+            <div class="form-group">
+                <label for="cet-pass-year">CET Pass Year:</label>
+                <input type="number" id="cet-pass-year" name="CET Pass Year">
+            </div>
+            <div class="form-group">
+                <label for="cet-rank">CET Rank:</label>
+                <input type="number" id="cet-rank" name="CET Rank">
+            </div>
+            
+            <!-- SSC Details Section -->
+            <h2>SSC Details</h2>
+            <div class="form-group">
+                <label for="ssc-board">Name of the SSC Board:</label>
+                <select id="ssc-board" name="Name of the SSC Board">
+                    <option value="AP SSC">AP SSC</option>
+                    <option value="ICSE">ICSE</option>
+                    <option value="CBSC">CBSC</option>
+                    <option value="AP OSS">AP OSS</option>
+                    <option value="Other Boards">Other Boards</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ssc-hall-ticket-number">SSC Hall Ticket Number:</label>
+                <input type="text" id="ssc-hall-ticket-number" name="SSC Hall Ticket Number">
+            </div>
+            <div class="form-group">
+                <label for="ssc-pass-type">SSC Pass Type:</label>
+                <select id="ssc-pass-type" name="SSC Pass Type">
+                    <option value="Regular">Regular</option>
+                    <option value="Supply">Supply</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ssc-pass-year">SSC Pass Year:</label>
+                <input type="number" id="ssc-pass-year" name="SSC Pass Year">
+            </div>
+            
+            <!-- Personal Details Section -->
+            <h2>Personal Details</h2>
+            <div class="form-group">
+                <label for="aadhar-number">Aadhar Number of Student:</label>
+                <input type="text" id="aadhar-number" name="Aadhar Number of Student">
+            </div>
+            <div class="form-group">
+                <label for="student-name">Student Name (as in SSC Certificate):</label>
+                <input type="text" id="student-name" name="Student Name (as in SSC Certificate)">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date-of-birth">Date of Birth:</label>
+                <input type="date" id="date-of-birth" name="Date of Birth">
+            </div>
+            <div class="form-group">
+                <label for="mobile-no">Mobile No of Student:</label>
+                <input type="number" id="mobile-no" name="Mobile No of Student">
+            </div>
+            <div class="form-group">
+                <label for="email-address">Email Address of Student:</label>
+                <input type="email" id="email-address" name="Email Address of Student">
+            </div>
+            <div class="form-group">
+                <label for="Caste">Caste: SC/ST/BC/Kapu/Brahmin/Arya Vysya/Kamma/Reddy/Kshatriya/EBC (others)</label>
+                <input type="text" id="Caste" name="Caste">
+            </div>
+            <div class="form-group">
+                <label for="Sub-Caste">Sub-Caste:</label>
+                <input type="text" id="Sub-Caste" name="Sub-Caste">
+            </div>
+            <div class="form-group">
+                <label for="parental-status">Parental Status:</label>
+                <select id="parental-status" name="Parental Status">
+                    <option value="Both Alive">Both Alive</option>
+                    <option value="Single Parent">Single Parent</option>
+                    <option value="Orphan">Orphan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="father-name">Father Name:</label>
+                <input type="text" id="father-name" name="Father Name">
+            </div>
+            <div class="form-group">
+                <label for="father-aadhar-number">Father Aadhar Number:</label>
+                <input type="text" id="father-aadhar-number" name="Father Aadhar Number">
+            </div>
+            <div class="form-group">
+                <label for="mother-name">Mother Name:</label>
+                <input type="text" id="mother-name" name="Mother Name">
+            </div>
+            <div class="form-group">
+                <label for="mother-aadhar-number">Mother Aadhar Number:</label>
+                <input type="text" id="mother-aadhar-number" name="Mother Aadhar Number">
+            </div>
+            <div class="form-group">
+                <label for="guardian-name">Guardian Name (In case mother and father are not alive):</label>
+                <input type="text" id="guardian-name" name="Guardian Name">
+            </div>
+            <div class="form-group">
+                <label for="guardian-aadhar-number">Guardian Aadhar Number:</label>
+                <input type="text" id="guardian-aadhar-number" name="Guardian Aadhar Number">
+            </div>
+            <div class="form-group">
+                <label for="relation-with-guardian">Relation with Guardian:</label>
+                <input type="text" id="relation-with-guardian" name="Relation with Guardian">
+            </div>
+            <div class="form-group">
+                <label for="spouse-name">Name of Spouse (In case of married student):</label>
+                <input type="text" id="spouse-name" name="Name of Spouse">
+            </div>
+            <div class="form-group">
+                <label for="spouse-aadhar-no">Spouse Aadhar No:</label>
+                <input type="text" id="spouse-aadhar-no" name="Spouse Aadhar No">
+            </div>
+        </div>
+    <br><br>
+        <div class="container page">
+            <h2>Academic and Address Details</h2>
+            
+            <!-- Academic Details Section -->
+            <h3>Form 2</h3>
+            <div class="form-group">
+                <label for="last-year-pass-percentage">Last Year Pass Percentage/CGPA:</label>
+                <input type="text" id="last-year-pass-percentage" name="Last Year Pass Percentage/CGPA">
+            </div>
+            <div class="form-group">
+                <label for="college-admission-no">College Admission No:</label>
+                <input type="text" id="college-admission-no" name="College Admission No">
+            </div>
+            <div class="form-group">
+                <label for="college-admission-date">College Admission Date:</label>
+                <input type="date" id="college-admission-date" name="College Admission Date">
+            </div>
+            <div class="form-group">
+                <label for="course-group-name">Course/Group Name:</label>
+                <input type="text" id="course-group-name" name="Course/Group Name">
+            </div>
+            <div class="form-group">
+                <label for="year-of-study">Year of Study:</label>
+                <input type="number" id="year-of-study" name="Year of Study">
+            </div>
+            <div class="form-group">
+                <label for="section">Section:</label>
+                <input type="text" id="section" name="Section">
+            </div>
+            
+            <!-- Address Details Section -->
+            <h3>Address Details</h3>
+            <div class="form-group">
+                <label for="present-address">Present Address of the Student:</label>
+                <textarea id="present-address" name="Present Address of the Student" rows="4" cols="50"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="State">
+            </div>
+            <div class="form-group">
+                <label for="district">District:</label>
+                <input type="text" id="district" name="District">
+            </div>
+            <div class="form-group">
+                <label for="mandal-municipality">Mandal/Municipality:</label>
+                <input type="text" id="mandal-municipality" name="Mandal/Municipality">
+            </div>
+            <div class="form-group">
+                <label for="village">Village:</label>
+                <input type="text" id="village" name="Village">
+            </div>
+            <div class="form-group">
+                <label for="village-ward-secretariat">Village/Ward Secretariat to which family is tagged:</label>
+                <input type="text" id="village-ward-secretariat" name="Village/Ward Secretariat">
+            </div>
+            <div class="form-group">
+                <label for="door-house-number">Door/House Number:</label>
+                <input type="text" id="door-house-number" name="Door/House Number">
+            </div>
+            <div class="form-group">
+                <label for="street-land-mark">Street/Land Mark:</label>
+                <input type="text" id="street-land-mark" name="Street/Land Mark">
+            </div>
+            <div class="form-group">
+                <label for="pin-code">Pin Code:</label>
+                <input type="text" id="pin-code" name="Pin Code">
+            </div>
+            <div class="form-group">
+                <label for="same-as-permanent-address">Is Present Communication Address same as Permanent Address?</label>
+                <select id="same-as-permanent-address" name="Same as Permanent Address">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="permanent-address">If No, Please provide details of Permanent Address:</label>
+                <textarea id="permanent-address" name="Permanent Address" rows="4" cols="50"></textarea>
+            </div>
+            
+            <!-- Additional Details Section -->
+            <h3>Additional Details</h3>
+            <div class="form-group">
+                <label for="special-category">Any Special Category like Sport/NSS/NCC/CAP/Extra Curricular:</label>
+                <input type="text" id="special-category" name="Special Category">
+            </div>
+            <div class="form-group">
+                <label for="parent-guardian-occupation">Parent/Guardian Occupation:</label>
+                <input type="text" id="parent-guardian-occupation" name="Parent/Guardian Occupation">
+            </div>
+            <div class="form-group">
+                <label for="mother-tongue">Mother Tongue:</label>
+                <input type="text" id="mother-tongue" name="Mother Tongue">
+            </div>
+            <div class="form-group">
+                <label for="nationality">Nationality:</label>
+                <input type="text" id="nationality" name="Nationality">
+            </div>
+            
+            <!-- Document Upload Section -->
+            <h3>Documents</h3>
+            <div class="form-group">
+                <label for="student-photo-with-signature">Student Photo with Signature:</label>
+                <input type="file" id="student-photo-with-signature" name="Student Photo with Signature" accept="image/*">
+            </div>
+            
+            <!-- Eligibility and Categories Section -->
+            <h3>Eligibility and Categories</h3>
+            <div class="form-group">
+                <label for="physically-challenged">Physically Challenged:</label>
+                <select id="physically-challenged" name="Physically Challenged">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="parent-sanitary-worker">Is either of the parents a sanitary worker (As per G.O Ms.No.115, sanitary workers are eligible irrespective of salary)?</label>
+                <select id="parent-sanitary-worker" name="Parent Sanitary Worker">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="student-eligible-for-scholarship">Is the Student Eligible for Scholarship?</label>
+                <select id="student-eligible-for-scholarship" name="Student Eligible for Scholarship">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+    
+    
+    <div class="container">
+        <button id="print-pdf">Print PDF</button>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyx2UrfGo1XKEn_qYGyJnEh7Ekuge1p2X9zSXeAWIi4QMx8XTqG4y1FKtG2fhq94Ftofg/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert('Success! Form submitted.'))
+            .catch(error => console.error('Error!', error.message))
+        })
+
+        document.getElementById('print-pdf').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+</body>
+</html>
